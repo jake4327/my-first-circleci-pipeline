@@ -28,5 +28,5 @@ workflows:
       - one
       - two:
           requires:
-           - build1
+           - one
       - three
