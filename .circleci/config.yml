@@ -14,9 +14,19 @@ jobs:
       - run:
           name: Job Two
           command: echo 'This is the second job!'
+  three:
+    docker:
+      - image: alpine:3.7
+    steps:
+      - run: 
+         name: Insert Jake Job
+         command: echo 'This is a simple command'
 workflows:
   version: 2.1
   one_and_two:
     jobs:
       - one
-      - two
+      - two:
+	 requires:
+          - one
+      - three
